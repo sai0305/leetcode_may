@@ -1,2 +1,2 @@
 # leetcode_may
-Leet code may streak challenge
+Contains solutions of Leet code may streak challenge using cpp.
