@@ -1,0 +1,28 @@
+//used moores voting algorithm applicable only when there is majority element for sure
+
+
+class Solution {
+public:
+    int majorityElement(vector<int>& v) {
+        
+        int n=v.size();
+        
+       int mi=0;int count=1;
+        
+        for(int i=1;i<n;i++)
+        {
+            
+            if(v[mi]==v[i])
+                count++;
+            else
+                count--;
+            if(count==0)
+            {
+                mi=i;
+                count=1;
+                
+            }
+        }
+        return v[mi];
+    }
+};
