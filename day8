@@ -1,0 +1,19 @@
+//equation of a straight line, time:o(n) space:o(1);
+class Solution {
+public:
+    bool checkStraightLine(vector<vector<int>>& v) {
+        int n=v.size();
+        int x1=v[1][0]-v[0][0];
+        int y1=v[1][1]-v[0][1];
+        
+        for(int i=2;i<n;i++)
+        {
+            if(x1*(v[i][1]-v[0][1])!=y1*(v[i][0]-v[0][0]))
+            return false;
+            
+            
+        }
+        return true;
+        
+    }
+};
