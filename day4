@@ -1,0 +1,15 @@
+//number of bits in a number can be found using floor(log2(num))+1
+
+class Solution {
+public:
+    int findComplement(int num) {
+        if(num)
+        {int n;
+            n=floor(log2(num))+1;//cout<<n<<endl;
+         int n1=(pow(2,n)-1);
+        num=num ^ n1;
+        return num;}
+        else
+            return 1;
+    }
+};
