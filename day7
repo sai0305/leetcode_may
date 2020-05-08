@@ -1,0 +1,74 @@
+//finding the level for a given node and parent for a given node timee complexity:o(log n)
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int getlevel(TreeNode* root,int key,int level)
+    {
+        
+        if(root==NULL)
+            return 0;
+        if(root->val==key)
+            return level;
+        int d=getlevel(root->left,key,level+1);
+        if(d!=0)
+            return d;
+        d=getlevel(root->right,key,level+1);
+        
+        return d;     
+        
+    }
+    
+    int parent(TreeNode* root, int x, int y)
+    {
+        if(root==NULL)
+            return 0;
+        if(root->val==x)
+        {//cout<<"Hi"<<endl;
+            return y;}
+        else
+        {int d=parent(root->left,x,root->val);
+         //cout<<"curr_node"<<endl;
+         //cout<<root->val<<"->"<<d<<endl;;
+                if(d!=0)
+                    return d;
+            d=parent(root->right,x,root->val);
+            return d;
+            
+        }
+        
+        
+        
+    }
+    
+    bool isCousins(TreeNode* root, int x, int y) {
+        
+        int c,c1;int p,p1;p=parent(root,x,-1);p1=parent(root,y,-1);cout<<" p "<<p<<"p1 "<<p1<<endl;
+        c=getlevel(root,x,1);
+        c1=getlevel(root,y,1);cout<<"c"<<c<<" c1"<<c1<<endl;
+        if(c==c1)
+        {
+            if(p==p1)
+                return false;
+            else
+                return true;
+            
+            
+            
+            
+        }
+        else
+           return false;
+        
+    }
+};
